@@ -1,53 +1,49 @@
 #include <SFML/Graphics.hpp>
+#include "sfml_extensions/sprite_factory.hpp"
 
 int main(int argv, char* argc[])
 {
 
+    //create the window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Strikers Clone");
 
+    //for event handling
     sf::Event event;
 
+    //creates and manages images
+    SpriteFactory spriteFactory = SpriteFactory(&window);
+
+    //set the framerate to 60 fps
     window.setFramerateLimit(60);
 
+    //clear the window to black
     window.clear(sf::Color(0, 0, 0));
 
+    //for holding and maintaining the gamestate
     enum GAME_STATE {INTRO, MENU, GAME, OPTIONS, HIGH_SCORE, END};
     GAME_STATE gameState = INTRO;
+
+
 
     while(window.isOpen())
     {
 
         switch(gameState)
         {
+            //Intro screen(s)
             case INTRO:
             {
-                //load the SFML logo into a texture
-                sf::Texture* textureSFMLLogo = new sf::Texture();
-                textureSFMLLogo->loadFromFile("images/intro.png");
 
-                //apply the SFML logo texture to the sprite
-                sf::Sprite* spriteSFMLLogo = new sf::Sprite(*textureSFMLLogo);
-
-                //get the width and height of the sprite
-                sf::FloatRect spriteDimensions = spriteSFMLLogo->getGlobalBounds();
-                int spriteH = spriteDimensions.height;
-                int spriteW = spriteDimensions.width;
-
-                //get the width and height of the window
-                sf::Vector2u windowDimensions = window.getSize();
-                int windowH = windowDimensions.y;
-                int windowW = windowDimensions.x;
-
-                //center the sprite in the window
-                spriteSFMLLogo->setPosition(((windowW / 2) - (spriteW / 2)), ((windowH / 2) - (spriteH / 2)));
+                //create a sprite of the SFML logo and center it
+                spriteFactory.createSprite("images/intro.png", "SFML_Logo");
+                spriteFactory.centerSprite("SFML_Logo");
 
                 //fade in
-                spriteSFMLLogo->setColor(sf::Color(255, 255, 255, 0));
                 for(int x = 0; x <= 255; x+= 4)
                 {
                     window.clear(sf::Color(0, 0, 0));
-                    spriteSFMLLogo->setColor(sf::Color(255, 255, 255, x));
-                    window.draw(*spriteSFMLLogo);
+                    spriteFactory.getSprite("SFML_Logo")->setColor(sf::Color(255, 255, 255, x));
+                    spriteFactory.drawSprite("SFML_Logo");
                     window.display();
                 }
 
@@ -55,14 +51,13 @@ int main(int argv, char* argc[])
                 for(int x = 255; x >= 0; x -= 4)
                 {
                     window.clear(sf::Color(0, 0, 0));
-                    spriteSFMLLogo->setColor(sf::Color(255, 255, 255, x));
-                    window.draw(*spriteSFMLLogo);
+                    spriteFactory.getSprite("SFML_Logo")->setColor(sf::Color(255, 255, 255, x));
+                    spriteFactory.drawSprite("SFML_Logo");
                     window.display();
                 }
 
                 //Free up memory allocated to the sprite and texture
-                delete spriteSFMLLogo;
-                delete textureSFMLLogo;
+                spriteFactory.deleteSprite("SFML_Logo");
 
                 //switch the current game state to the main menu
                 gameState = MENU;

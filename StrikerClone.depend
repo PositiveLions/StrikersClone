@@ -338,3 +338,16 @@
 	<string>
 	<vector>
 
+1388356691 source:c:\github_projects\strikersclone\main.cpp
+	<SFML/Graphics.hpp>
+	"sfml_extensions/sprite_factory.hpp"
+
+1388255284 source:c:\github_projects\strikersclone\font_factory.cpp
+
+1388357972 source:c:\github_projects\strikersclone\sfml_extensions\sprite_factory.cpp
+	"sprite_factory.hpp"
+
+1388357774 c:\github_projects\strikersclone\sfml_extensions\sprite_factory.hpp
+	<map>
+	<SFML/Graphics.hpp>
+
