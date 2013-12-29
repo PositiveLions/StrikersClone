@@ -7,8 +7,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin\Debug\StrikerClone" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj\Debug\" />
+				<Option output="bin/Debug/StrikerClone" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -21,8 +21,8 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release\StrikerClone" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj\Release\" />
+				<Option output="bin/Release/StrikerClone" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -38,11 +38,13 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:\SFML-2.1\include" />
+			<Add directory="C:/SFML-2.1/include" />
 		</Compiler>
 		<Linker>
-			<Add directory="C:\SFML-2.1\lib" />
+			<Add directory="C:/SFML-2.1/lib" />
 		</Linker>
+		<Unit filename="Ship.cpp" />
+		<Unit filename="Ship.h" />
 		<Unit filename="font_factory.cpp" />
 		<Unit filename="font_factory.hpp" />
 		<Unit filename="main.cpp" />
