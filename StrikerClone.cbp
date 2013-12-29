@@ -43,6 +43,8 @@
 		<Linker>
 			<Add directory="C:/SFML-2.1/lib" />
 		</Linker>
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
 		<Unit filename="Ship.cpp" />
 		<Unit filename="Ship.h" />
 		<Unit filename="font_factory.cpp" />
