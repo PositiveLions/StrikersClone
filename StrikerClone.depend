@@ -343,3 +343,16 @@
 1388346868 source:d:\programming projects\github repositories\strikersclone\main.cpp
 	<SFML/Graphics.hpp>
 
+1388357758 source:d:\programming projects\github repositories\strikersclone\ship.cpp
+	"Ship.h"
+
+1388357526 d:\programming projects\github repositories\strikersclone\ship.h
+	<SFML/Graphics.hpp>
+
+1388357195 source:d:\programming projects\github repositories\strikersclone\player.cpp
+	"Player.h"
+
+1388357067 d:\programming projects\github repositories\strikersclone\player.h
+	"Ship.h"
+	<string>
+
